@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sophie & Yann — Mariage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #f5efe6;         /* crème */
+      --bg-card: #fffaf4;
+      --accent: #b28455;          /* bois clair */
+      --accent-soft: #e2c8a8;
+      --text-main: #3a342e;
+      --text-soft: #7b6b5b;
+      --border-soft: #e1d4c4;
+      --radius-card: 18px;
+      --shadow-soft: 0 14px 35px rgba(0,0,0,0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #fdf7f0 0, #f5efe6 45%, #f1e6d9 100%);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* Hero */
+    header {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-photo {
+      max-width: 720px;
+      margin: 0 auto 1.8rem;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 520px;
+    }
+
+    .hero-card {
+      max-width: 720px;
+      background: rgba(255, 250, 244, 0.9);
+      border-radius: 26px;
+      padding: 2.4rem 2.2rem 2.6rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+
+    .hero-tag {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-names {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 4vw, 3.1rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0.2rem 0 0.8rem;
+    }
+
+    .hero-line {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-date-place {
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .hero-date-place strong {
+      font-weight: 600;
+    }
+
+    .hero-bottom {
+      margin-top: 1.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .hero-badge-row {
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge {
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(178,132,85,0.06);
+      border: 1px solid rgba(178,132,85,0.18);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .lang-switch {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      padding: 0.18rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(255,250,244,0.8);
+    }
+
+    .lang-switch a {
+      font-size: 0.8rem;
+      text-decoration: none;
+      padding: 0.4rem 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border-radius: 999px;
+      color: var(--text-soft);
+    }
+
+    .lang-switch a.active {
+      background: var(--accent);
+      color: #fffaf4;
+    }
+
+    /* Navigation (page interne) */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245,239,230,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+      padding: 0.6rem 1.4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      gap: 0.7rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+    }
+
+    nav a:hover {
+      background: rgba(178,132,85,0.07);
+    }
+
+    /* Sections */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    section {
+      margin-bottom: 2.8rem;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-bottom: 0.15rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.65rem;
+      margin-top: 0;
+      margin-bottom: 1.4rem;
+      color: var(--text-main);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 1.6rem 1.6rem 1.7rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .muted {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.3rem 0 0;
+    }
+
+    li {
+      margin-bottom: 0.3rem;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 0.24rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(178,132,85,0.07);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .rsvp-box {
+      border-left: 3px solid var(--accent-soft);
+      padding-left: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #fffaf4;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #9e6e47;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 230px;
+      border-radius: var(--radius-card);
+      border: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2.3rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    @media (max-width: 780px) {
+      .hero-card {
+        padding: 2rem 1.6rem 2.2rem;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        padding-inline: 0.7rem;
+      }
+      .nav-inner {
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header id="top">
+  <!-- Bannière photo principale -->
+  <div class="hero-photo">
+    <!-- Mets ton image dans le même dossier que ce fichier et renomme-la sy-wedding.jpg
+         ou adapte le src ci-dessous -->
+    <img src="sy-wedding.jpeg" alt="Sophie &amp; Yann – séance photo de mariage" />
+  </div>
+
+  <div class="hero-card">
+    <div class="hero-tag">Mariage · Wedding</div>
+    <h1 class="hero-names">Sophie &amp; Yann</h1>
+    <div class="hero-line">10 juillet 2026 · Bottens, Suisse</div>
+    <p class="hero-date-place">
+      <strong>Jardin des parents de Sophie</strong><br/>
+      Bottens, Suisse
+    </p>
+    <div class="hero-bottom">
+      <div>Un moment simple, chaleureux et rempli d'amour, à partager avec vous.</div>
+      <div class="hero-badge-row">
+        <span class="hero-badge">simple &amp; sincère</span>
+        <span class="hero-badge">jardin · été</span>
+      </div>
+    </div>
+
+    <div class="lang-switch">
+      <a href="#fr" class="active">FR</a>
+      <a href="#en">EN</a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#fr">FR · Bienvenue</a>
+    <a href="#fr-programme">FR · Programme</a>
+    <a href="#fr-cadeaux">FR · Cadeaux</a>
+    <a href="#fr-tenue">FR · Tenue</a>
+    <a href="#fr-rsvp">FR · RSVP</a>
+    <a href="#en">EN · Welcome</a>
+    <a href="#en-schedule">EN · Schedule</a>
+    <a href="#en-gifts">EN · Gifts</a>
+    <a href="#en-dresscode">EN · Dress code</a>
+    <a href="#en-rsvp">EN · RSVP</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ================= FRANÇAIS ================= -->
+
+  <section id="fr">
+    <div class="section-label">Version française</div>
+    <h2 class="section-title">Bienvenue</h2>
+    <div class="card">
+      <p>
+        Nous sommes très heureux de partager ce jour avec vous. Pas de chichi, pas de protocole…
+        juste nous deux, et vous, dans le jardin des parents de Sophie. Un cadre simple et chaleureux.
+      </p>
+    </div>
+  </section>
+
+  <section id="fr-programme">
+    <div class="section-label">Jour J</div>
+    <h2 class="section-title">Programme</h2>
+    <div class="card">
+      <p><span class="pill">Heure cérémonie</span></p>
+      <p>Pas de cérémonie officielle, à la civil.<br/>
+      RDV à <strong>15h30</strong></p>
+      <p><strong>Où ?</strong> Dans le jardin des parents à Chemin des Sauges, 1041 Bottens</p>
+
+      <p><span class="pill">Cocktail</span></p>
+      <p>Bar à cocktails</p>
+
+      <p><span class="pill">Dîner</span></p>
+      <p>À choix à la broche + salades + p'tit dînée.<br/>
+      Une alternative sera proposée pour ceux qui n'en mangeraient pas ;)</p>
+
+      <p><span class="pill">Ouverture du bal</span></p>
+      <p>Pas de timing, juste du feeling.</p>
+
+      <p><span class="pill">Fin programmée</span></p>
+      <p>La musique s'arrêtera à minuit à cause du voisinage mais la soirée peut continuer pour plus discret.</p>
+    </div>
+  </section>
+
+  <section id="fr-cadeaux">
+    <div class="section-label">Avec amour</div>
+    <h2 class="section-title">Cadeau</h2>
+    <div class="card">
+      <p>
+        Votre présence est le plus beau des cadeaux. Si vous souhaitez toutefois participer
+        à notre voyage de noces, une petite boîte sera à votre disposition le jour J 🤍
+      </p>
+    </div>
+  </section>
+
+  <section id="fr-tenue">
+    <div class="section-label">Style</div>
+    <h2 class="section-title">Tenue</h2>
+    <div class="card">
+      <p>Dress code : « mariage classy casual »</p>
+    </div>
+  </section>
+
+  <section id="fr-rsvp">
+    <div class="section-label">Merci</div>
+    <h2 class="section-title">RSVP</h2>
+    <div class="card rsvp-box">
+      <p class="muted">
+        Merci de confirmer votre présence directement auprès de Sophie &amp; Yann.
+        Un petit message, un appel ou un WhatsApp fera l'affaire 💌
+      </p>
+    </div>
+  </section>
+
+  <!-- Photo de famille / Family photo -->
+  <section id="photo-famille" style="text-align: center;">
+    <div class="hero-photo" style="max-width: 720px; margin: 0 auto;">
+      <img src="family.jpeg" alt="Photo de famille — Family photo" />
+    </div>
+  </section>
+
+  <!-- ================= ENGLISH ================= -->
+
+  <section id="en">
+    <div class="section-label">English version</div>
+    <h2 class="section-title">Welcome</h2>
+    <div class="card">
+      <p>
+        We are very happy to share this day with you. No fuss, no strict protocol…
+        just the two of us, and you, in Sophie's parents' garden. Simple, warm and relaxed.
+      </p>
+    </div>
+  </section>
+
+  <section id="en-schedule">
+    <div class="section-label">On the day</div>
+    <h2 class="section-title">Schedule</h2>
+    <div class="card">
+      <p><span class="pill">Ceremony time</span></p>
+      <p>No official ceremony, civil wedding only.<br/>
+      Meet at <strong>3:30 pm</strong></p>
+      <p><strong>Where?</strong> In the parents' garden at Chemin des Sauges, 1041 Bottens</p>
+
+      <p><span class="pill">Cocktail</span></p>
+      <p>Cocktail bar</p>
+
+      <p><span class="pill">Dinner</span></p>
+      <p>Choice of spit-roasted meat + salads + light bites.<br/>
+      An alternative will be offered for anyone who doesn't eat the main dish ;)</p>
+
+      <p><span class="pill">First dance</span></p>
+      <p>No timing, just feeling.</p>
+
+      <p><span class="pill">Scheduled end</span></p>
+      <p>Music will stop at midnight due to neighbours, but the party can continue more quietly.</p>
+    </div>
+  </section>
+
+  <section id="en-gifts">
+    <div class="section-label">With love</div>
+    <h2 class="section-title">Gifts</h2>
+    <div class="card">
+      <p>
+        Your presence is the greatest gift.
+        If you would still like to contribute to our honeymoon,
+        a small box will be available on the day 🤍
+      </p>
+    </div>
+  </section>
+
+  <section id="en-dresscode">
+    <div class="section-label">Style</div>
+    <h2 class="section-title">Dress code</h2>
+    <div class="card">
+      <p>Dress code: "classy casual wedding".</p>
+    </div>
+  </section>
+
+  <section id="en-rsvp">
+    <div class="section-label">RSVP</div>
+    <h2 class="section-title">Confirm</h2>
+    <div class="card rsvp-box">
+      <p class="muted">
+        Please confirm your attendance directly with Sophie &amp; Yann.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Avec tout notre amour — With all our love<br/>
+  Sophie &amp; Yann
+</footer>
+
+</body>
+</html>

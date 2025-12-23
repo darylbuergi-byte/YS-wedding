@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+
+# Optional headers for caching (example)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirect to index.html for SPA-style routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

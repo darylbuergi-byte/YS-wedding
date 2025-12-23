@@ -64,6 +64,20 @@
       max-height: 520px;
     }
 
+    .family-photo {
+      max-width: 720px;
+      margin: 2.2rem auto;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .family-photo img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
     .hero-card {
       max-width: 720px;
       background: rgba(255, 250, 244, 0.9);
@@ -326,9 +340,8 @@
 <header id="top">
   <!-- Bannière photo principale -->
   <div class="hero-photo">
-    <!-- Mets ton image dans le même dossier que ce fichier et renomme-la sy-wedding.jpg
-         ou adapte le src ci-dessous -->
-    <img src="sy-wedding.jpg" alt="Sophie &amp; Yann – séance photo de mariage" />
+    <!-- The hero image file should be uploaded to assets/images/sy-wedding.jpeg -->
+    <img src="assets/images/sy-wedding.jpeg" alt="" />
   </div>
 
   <div class="hero-card">
@@ -425,6 +438,11 @@
       </p>
     </div>
   </section>
+
+  <!-- Family photo between French and English sections -->
+  <div class="family-photo">
+    <img src="assets/images/family.jpeg" alt="" />
+  </div>
 
   <!-- ================= ENGLISH ================= -->
 
